@@ -1,0 +1,58 @@
+﻿@model Expense_Tracker.Models.Category
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+@if(Model.CategoryId==0){
+	<h1>Add</h1>
+}
+else
+{
+	<h1>Edit</h1>
+}
+
+<div class="row">
+	<div class="col-md-7">
+		<div class="widget p-5">
+			<form asp-action="AddOrEdit">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="CategoryId" />
+				<div class="form-group">
+					<div class='e-btn-group custom-rbt-group'>
+						<input type="radio" id="radioExpense" name="Type" value="Expense" checked="@(Model.Type=="Expense")" />
+						<label class="e-btn" for="radioExpense">Expense</label>
+						<input type="radio" id="radioIncome" name="Type" value="Income" checked="@(Model.Type=="Income")" />
+						<label class="e-btn" for="radioIncome">Income</label>
+					</div>
+				</div>
+				<div class="mb-3">
+					@* we use value instead of asp-for for syncfusion component *@
+					<ejs-textbox id="title" placeholder="title" ejs-for="Title" floatLabelType="Auto"></ejs-textbox>
+					<span asp-validation-for="Title" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<ejs-textbox id="icon" placeholder="icon" ejs-for="Icon" floatLabelType="Auto"></ejs-textbox>
+					<span asp-validation-for="Icon" class="text-danger"></span>
+				</div>
+				@*
+				Windows + . to open emojies
+				*@
+				<div class="form-group">
+						<ejs-button id="submit" content="Submit" typeof="submit" value="Submit" class="e-success" />
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
