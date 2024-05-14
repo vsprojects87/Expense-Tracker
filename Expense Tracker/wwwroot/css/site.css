@@ -23,12 +23,33 @@ body {
   color:#fff;
 }
 
+.e-breadcrumb a, e-breadcrumb a:hover {
+    color:inherit !important;
+    text-decoration:none;
+}
+
+.e-grid{
+    border:0;
+    border-radius:5px;
+}
+
+
 .e-bigger {
     font-size: x-large;
 }
 
-.e-btn-group.custom-rbt-group{
-    width:100%;
+.btn:focus, .btn:active{
+    outline:none !important;
+    box-shadow:none;
+}
+
+.no-a-decoration, .no-a-decoration:hover{
+    text-decoration:none;
+    color:inherit;
+}
+
+.e-btn-group.custom-rbt-group {
+    width: 100%;
 }
 .e-btn-group.custom-rbt-group .e-btn{
     width: 50%;
