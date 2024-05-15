@@ -9,12 +9,15 @@ namespace Expense_Tracker.Models
         public int CategoryId { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string Title { get; set; }
+		[Required(ErrorMessage ="Title is required")]
+		public string Title { get; set; }
 
 		[Column(TypeName = "nvarchar(5)")]
+		[Required(ErrorMessage = "Icon is required")]
 		public string Icon { get; set; } = "";
 
 		[Column(TypeName = "nvarchar(10)")]
+		[Required(ErrorMessage = "Must Select Something")]
 		public string Type { get; set; } = "Expense";
 
 		[NotMapped]

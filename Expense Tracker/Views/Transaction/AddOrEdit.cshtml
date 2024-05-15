@@ -11,23 +11,25 @@
 				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 				<input type="hidden" asp-for="TransactionId" />
 				<div class="mb-3">
-					<label asp-for="Date" class="control-label"></label>
-					<input asp-for="Date" class="form-control" />
-					<span asp-validation-for="Date" class="text-danger"></span>
+					<ejs-datepicker id="date" ejs-for="Date" floatLabelType="Always" placeholder="Date" format="MMM-dd-yy"></ejs-datepicker>
 				</div>
 				<div class="mb-3">
-					<label asp-for="CategoryId" class="control-label"></label>
-					<select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+					<ejs-dropdownlist id="games" ejs-for="CategoryId" dataSource="@ViewBag.categories"
+					floatLabelType="Always" placeholder="Category" allowFiltering="true" ignoreAccent="true"
+					filterType="Contains" popupHeight="200px">
+					@* in sorting we can serach for category in ddl but we have emoji which wont let us search for that 
+						we have taken ignoreaccent and filtertype
+					*@
+						<e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"></e-dropdownlist-fields>
+					</ejs-dropdownlist>
 				</div>
 				<div class="mb-3">
-					<label asp-for="Amount" class="control-label"></label>
-					<input asp-for="Amount" class="form-control" />
-					<span asp-validation-for="Amount" class="text-danger"></span>
+					<ejs-numerictextbox id="numeric" format="c0" floatLabelType="Always" min="0" ejs-for="Amount"
+					placeholder="Amount"></ejs-numerictextbox>
 				</div>
 				<div class="mb-3">
-					<label asp-for="Note" class="control-label"></label>
-					<input asp-for="Note" class="form-control" />
-					<span asp-validation-for="Note" class="text-danger"></span>
+					<ejs-textbox id="note" placeholder="Note" ejs-for="Note" floatLabelType="Auto"></ejs-textbox>
+					<span asp-validation-for="Note" class="text-danger" multiline="true"></span>
 				</div>
 
 				<div class="mb-3">
