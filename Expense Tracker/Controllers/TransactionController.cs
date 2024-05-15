@@ -27,7 +27,7 @@ namespace Expense_Tracker.Controllers
         public IActionResult AddOrEdit()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Title");
-            return View();
+            return View(new Transaction());
         }
 
         [HttpPost]
